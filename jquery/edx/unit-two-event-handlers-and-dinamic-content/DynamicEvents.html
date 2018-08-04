@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>On event</title>
+	<style type="text/css">
+		.btn{
+			font-size: 1em;
+		}
+	</style>
+</head>
+<body>
+	<h3>Implementing the jquery function on</h3>
+	<form>
+		<div><button type="button" class="btn validate">First</button></div>
+		<div><button type="button" class="btn validate">Second</button></div>
+		<div><button type="button" class="btn">Third</button></div>
+	</form>
+	<div id="display"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('form').on('click', 'button.validate', function() {
+			$('#display').text('cliked!!!');
+		});
+	});
+</script>
+</body>
+</html>

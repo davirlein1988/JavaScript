@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Event Listeners</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		/*addEventListener('click', function(evt){
+			alert("You clicked the page!!!");
+		});*/
+//this approach is used for larger statement, when it is something short the example above could be used instead
+		/*function processClick(evt){
+			alert("click");
+		}*/
+
+
+//third way to do the same
+window.onclick = 	function(evt){
+	alert("you clicked again!!!!");
+}
+
+	/* or also assigning it to a function and a callback
+window.onclick = processClick;
+function processClick(evt){
+			alert("clicked final approach!!!!!!!!!!!");
+		}	*/
+	</script>
+</head>
+<body>
+<p>Click on the page</p>
+</body>
+</html>

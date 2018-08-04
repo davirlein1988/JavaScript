@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Finding attributes with jquery based on equality</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Hello as always!!!</h1>
+<h1 custom="banner"> Custom attribute</h1>
+<h1 class="col-md-4">Class starts with col</h1>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//Will execute once the page is ready
+
+
+		// find elements based on attribute equality
+
+		$('[custom="banner"]').text('Found by equality');
+		// find elements based on attribute starts with
+
+		//$('[class^="col"]').text("found based on attribute starts with");
+
+		// find element based on attribute contains
+		$('[class*="md"]').text("found by element contains ");
+	});
+</script>
+</body>
+</html>

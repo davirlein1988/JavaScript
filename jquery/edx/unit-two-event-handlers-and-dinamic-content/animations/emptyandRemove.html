@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Empty vs remove</title>
+	<style>
+        #target{
+            background-color: red;
+            color: yellow;
+        }
+        #delete{
+            background-color: blue;
+            color: white;
+        }
+	</style>
+</head>
+<body>
+<div id="target">
+    <h3>This content will be removed</h3>
+    <p>This paragraph inside target</p>
+</div>
+<button type="button" id="btn-remove">Remove terget elements</button>
+<div id="delete">
+    <h3>This one never exists after the click</h3>
+    <p>This will disappeard for good</p>
+</div>
+<button type="button" id="btn-toggle">Remove elemenet itself</button>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+        $("#btn-remove").click(function() {
+            $('#target').empty();
+        });
+		$("#btn-toggle").click(function() {
+            $('#delete').remove();
+        });
+	})
+</script>
+</html>

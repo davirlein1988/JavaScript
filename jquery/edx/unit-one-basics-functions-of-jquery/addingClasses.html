@@ -1,0 +1,82 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>Demo one applying basic jquery attributes</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+  <style type="text/css">
+    body{
+      font-size: 32px;
+    }
+    div{
+      margin-top: .1em;
+    }
+    .stop{
+    	color: red;
+    	font-family: 'Serif';
+    }
+    .end{
+    	font-family: 'Verdana';
+    	font-weight: bolder;
+    	color: green;
+
+    	transform: rotate(180deg);
+    }
+    .demo{
+    	font-family: 'Monospace';
+    	font-style: oblique;
+    	font-weight: bold;
+    	color: yellow;
+    }
+    .demo {
+    width: 120px;
+    height: 120px;
+    margin:0px 0 0 0px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+    }
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+  
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div  class="stop">First</div>
+    <div  class="demo">Second</div>
+    <div  class="demo">Third</div>
+    <div  class="demo">Intruder</div>
+    <div  class="demo">Lost</div>
+    <div  id="target" class="demo">Fourth(Target)</div>
+    <div  class="demo">Fifth</div>
+    <div  class="demo">Sixth</div>
+    <div  class="demo">Seventh</div>
+    <div  class="demo">Intruder</div>
+    <div  class="end">Lost</div>
+  </div>
+  <div id="display"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+      	
+      	/*$('div').hover(function() {
+      		$(this).removeClass('stop end');
+      	}, function() {
+      		$(this).addClass('demo');
+      	});*/
+      	$('.demo').mousedown(function(event) {
+      		
+      		$(this).removeClass('demo').text('nicely done')
+      	});
+      	$('.demo').mouseup(function(event) {
+      		$(this).addClass('end');
+      	});
+		});
+	</script>
+</body>
+</html>

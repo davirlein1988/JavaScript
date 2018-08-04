@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Load page</title>
+</head>
+<style type="text/css">
+
+
+.progress{
+	margin-top:300px; 
+}
+	.progress > div {
+  height: 50px;
+  background: lightBlue;
+  width: 0%;
+  font-size:8px;
+}
+
+#text {
+  margin-top:50px;
+}
+body {
+  height: 2000px;
+}
+</style>
+<body>
+	<p>PAGE STATUS: <span id="pageStatus">NOT LOADED YET</span> </p>
+	<p>If you hover over the button, the console show the x and y position of the mouse</p>
+	<p>If you click, it will alert the postion where the button was clicked</p>
+	<button id="myButton"> Click me!!</button>
+	<p id="pageSize"> Current page size: </p>
+	<p id="screenSize">Screen size: </p>
+
+
+    <p id="text">Scroll me and the progress bar on the right will show 
+  the percentage of scroll. Look also at the CSS
+  code (body is 2000px height, for example)...</p>
+
+  <div class="progress">
+  <div>Percentage</div>
+</div>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

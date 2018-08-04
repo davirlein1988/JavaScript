@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<title>Wrapp</title>
+
+</head>
+<body>
+<div id="target">
+	<div class="demo">Item one</div>
+	<div class="demo">Item two</div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		
+		$('#target').wrap('<section></section>');
+			
+	});
+</script>
+</body>
+</html>

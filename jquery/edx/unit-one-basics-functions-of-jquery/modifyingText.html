@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Modifying the text of an element</title>
+</head>
+<body>
+<div id="target">Will be replaced 
+</div>
+<hr>
+<div id="target2">Will be replaced</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// replace text and even prints out the mark up
+		$('#target').text('<u>Updated with .text!!!</u>');
+		// replace text executing the markup
+		$('#target2').html('<u>Updated with .html!!!</u>');
+	})
+</script>
+</body>
+</html>

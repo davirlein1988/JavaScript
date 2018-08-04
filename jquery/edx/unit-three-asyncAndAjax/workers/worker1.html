@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>web workers </title>
+	<style type="text/css">
+		body{
+			font-size: 26px;
+			font-family: Verdana;
+		}
+
+		div {
+			margin-bottom: 3em;
+		}
+
+		.btn{
+			font-size: 1em;
+		}
+		.form-control{
+			font-size: 1em;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<input type="text" id="message" class="form-control">
+	<button type="button" class="btn" id="send-message" disabled="disabled">Send Message</button>
+	<h4>Web workers do not work on google chrom locally!!!</h4>
+	<h6>Chrome will load but will not execute the file, only executes from protocol http</h6>
+</div>
+<ul id="messages">
+	
+</ul>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+	
+	var worker = new Worker('./worker.js');
+	
+	worker.addEventListener('message', function (e) {
+		if (e.data === "READY") {
+			$('#messages').append('<li>Worker Ready!!!</li>');
+
+			$('#send-message').removeAttr('disabled').click(function () {
+				var message = $('#message').val();
+				worker.postMessage(message);
+			});
+			$('#message').focus();
+		}else {
+			$('#messages').append('<li>' + e.data + '</li>');
+
+			$('#message').val('').focus();
+		}
+	});
+	</script>
+</body>
+</html>

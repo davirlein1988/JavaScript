@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>On event</title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<p>Implemeting append and preppend with a click</p>
+<button type="button" id="target">Preppend!!!</button>
+<button type="button" id="target1">Append!!!</button>
+<div id="display">
+	<p> <strong>The initial content before any script </strong> </p>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#target').click(function() {
+			//implementing at the begginning with preppend
+			$('#display').prepend('<div>Content added with the preppend method </div>');
+			// same result as above, it only changes the order
+			$('<div>Content added with preppendTo method, also at the beggining</div>').prependTo('#display');
+
+		});
+		$('#target1').click(function() {
+			// append method adds content at the end, inside the target element
+			//implementing at the end with append
+			$('#display').append('<div>Content added with the preppend method </div>');
+			// same result as above, it only changes the order
+			$('<div>Content added with appendTo method, also at the end, inside the target element</div>').appendTo('#display');
+
+		});
+			
+	});
+</script>
+</body>
+</html>

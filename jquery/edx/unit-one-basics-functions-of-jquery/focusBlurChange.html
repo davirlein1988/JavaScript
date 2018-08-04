@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Use of Jquery functions Focus, Blur and Change</title>
+	<style type="text/css">
+		.form-control {
+		  font-family: Verdana;
+		  font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<p>This forms implements blur and focus</p>
+	<form>
+		<fieldset class="form-group">
+			<label for="name">Name</label>
+			<input type="text" class="form-control" id="name">
+			<span class="help" hidden="hidden">Please enter a name</span>
+		</fieldset>
+		<fieldset class="form-group">
+			<label for="email">Email:</label>
+			<input type="text" class="form-control" id="email">
+			<span class="help" hidden="hidden">Please enter an email</span>
+		</fieldset>
+	</form>
+	<h3>This dropdown implement change</h3>
+	<select id="parent" class="form-control">
+	  <option>Select:</option>
+	  <option>First</option>
+	  <option>Second</option>
+	</select>
+
+	<select id="child" class="form-control">
+	  <option>Choose a value from the left</option>
+	</select>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('input[type="text"]').focus(function() {
+				$(this).next('span.help').removeAttr('hidden');
+			}).blur(function() {
+				$('span.help').attr('hidden', 'hidden');
+			});
+
+			$('#parent').change(function() {
+				var value = $('#parent').val();
+				$('#child').empty();
+				$('#child').append('<option>1 - ' + value + '</option>');
+    			$('#child').append('<option>2 - ' + value + '</option>');
+			});
+		})
+	</script>
+
+</body>
+</html>

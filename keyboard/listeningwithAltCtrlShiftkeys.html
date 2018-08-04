@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adding listener for special modifiers suach as alt ctrl and shift keys </title>
+</head>
+<body>
+<p>To seeit in action you need to press keys and use modifiers Alt, Ctrl, and Shift keys</p>
+<div id="keys"></div>
+<script type="text/javascript">
+	window.onkeydown = processKeyDown;
+	// same result
+	//window.addEventListener('keypress', processKeyPress);
+	function processKeyDown(evt){
+		var keys = document.querySelector("#keys");
+		keys.innerHTML += "Keypress: " + evt.key + " code: " + evt.keyCode + " Modifiers : ";
+		var modifiers = "";
+
+		if(event.shiftKey)
+			modifiers += "SHIFT";
+		if(event.altKey)
+			modifiers += "ALt";
+		if(event.ctrlKey)
+			modifiers += "CTRL";
+		if(modifiers === "")
+			modifiers = "NONE";
+		keys.innerHTML += modifiers + "<br>";
+	}
+</script>
+</body>
+</html>

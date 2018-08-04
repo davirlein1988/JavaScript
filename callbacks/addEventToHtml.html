@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adding event listeners to a page</title>
+	<script type="text/javascript">
+		function processClick(evt){
+			alert("yep, you clicked the button");
+			// adding to the html
+			document.body.innerHTML += "clicked<br>"
+		}
+	</script>
+</head>
+<body>
+<!--<button onclick="processClick();">clicked me</button> -->
+<button id="myButton">Second Button</button>
+<script type="text/javascript">
+	//reference to the element, the querySelector attribute will only work if the DOM is ready.
+	let b = document.querySelector("#myButton");
+	// add event listener
+	b.addEventListener('click', function(evt){
+		alert('you have clicked the second button');
+		this.style.border = "1px solid blue";
+	})
+
+</script>
+</body>
+</html>

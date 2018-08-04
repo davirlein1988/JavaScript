@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>slide, fade</title>
+	<style>
+    	.hidden { display: none; }
+        #target{
+            background-color: red;
+            color: yellow;
+        }
+        form{
+            background-color: blue;
+            color: white;
+        }
+	</style>
+</head>
+<body>
+<div id="target">Show or hide this div by clicking a button</div>
+<button type="button" id="btn-toggle">Animate!!</button>
+<form>
+    <div>
+        <label>Name:</label>
+        <input type="text" />
+    </div>
+    <button type="button" id="show-additional-information">
+        Show additional information
+    </button>
+    <div id="additional-information" class="hidden">
+        <label>Additional information:</label>
+        <input type="text" />
+    </div>
+</form>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#btn-toggle').click(function() {
+			$('#target').fadeToggle(1000);
+		});
+		$('#show-additional-information').click(function() {
+        $('#additional-information').slideToggle(750);
+        // the above can be impplemented with toggle as well
+    	});
+	})
+</script>
+</html>

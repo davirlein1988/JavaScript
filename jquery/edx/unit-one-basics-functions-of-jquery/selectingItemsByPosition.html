@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo one applying basic jquery attributes</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+  <style type="text/css">
+    body{
+      font-size: 32px;
+    }
+    div{
+      margin-top: .1em;
+    }
+  
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div style="color: black" class="stop">First</div>
+    <div style="color: black">Second</div>
+    <div style="color: black">Third</div>
+    <div style="color: black">Intruder</div>
+    <div style="color: black">Lost</div>
+    <div style="color: black" id="target">Fourth(Target)</div>
+    <div style="color: black">Fifth</div>
+    <div style="color: black">Sixth</div>
+    <div style="color: black">Seventh</div>
+    <div style="color: black">Intruder</div>
+    <div style="color: black" class="end">Lost</div>
+  </div>
+  <div id="display"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+      var element = $('#target');
+      var container = $('#container');
+
+      var index = container.children().index(element);
+
+      $('#display').text('Index is ' + index);
+
+      //get returns a DOM element not a jquery object
+
+      var foundElement =  container.children().get(index);
+      // convert to jquery
+
+      var jQueryObject = $(foundElement);
+      jQueryObject.attr('style', 'color:red');
+
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>web workers </title>
+	<style type="text/css">
+		body{
+			font-size: 26px;
+			font-family: Verdana;
+		}
+
+		div {
+			margin-bottom: 3em;
+		}
+
+		.btn{
+			font-size: 1em;
+		}
+		.form-control{
+			font-size: 1em;
+		}
+	</style>
+</head>
+<body>
+<div>
+	
+	<button type="button" class="btn" id="start-worker">Start worker</button>
+	<h4>Web workers do not work on google chrom locally!!!</h4>
+	<h6>Chrome will load but will not execute the file, only executes from protocol http</h6>
+</div>
+<ul id="messages">
+	
+</ul>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+	
+	$(function() {
+		$('#start-worker').click(function() {
+			//get promise
+			var promise = beginProcessing();
+
+			//register our event handlers
+			promise.progress(function (message) {
+				//update the UI for progress
+				$('#messages').append('<li>Progress: '+ message +'</li>');
+			}).done(function(message){
+				//update the UI for completion
+				$('#messages').append('<li>Completion: '+ message +'</li>');
+
+			});
+			$('#messages').empty();
+		});	
+	})
+
+	// worker implementation
+	function beginProcessing(){
+		var deferred = new $.Deferred();
+		var worker = new Worker('./deferred.js');
+		 //register the message for the event handler
+		 worker.addEventListener('message', function(e) {
+		 	// simple message when the worker is ready
+		 	if (e.data === 'READY'){
+		 		deferred.notify('Worker started');
+		 	}else if (e.data === 'COMPLETED') {
+		 		//PROCESSING IS DONE
+		 		deferred.resolve('Worker completed');
+		 		worker.terminate();
+		 	}
+		 });
+		 return deferred.promise();
+	}
+	</script>
+</body>
+</html>

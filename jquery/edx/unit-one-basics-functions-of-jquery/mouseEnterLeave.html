@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Implementing mouseenter and mouseleave</title>
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+</style>
+
+</head>
+<body>
+	<div>
+		<span id="target">Basic data</span>
+		<span id="target-help"></span>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		/*$('#target').mouseenter(function() {
+			$('#target-help').text("Hi yo!!!!");
+			}).mouseleave(function() {
+				$('#target-help').text("bye then !!!");
+		});*/
+		// Same result as above with hover!!!
+		$('#target').hover(function() {
+		// mouseenter
+			$('#target-help').html('<div class="tooltip"><span class="tooltiptext">Tooltip welcome</span></div>');
+		}, function() {
+			// mouseleave
+			$('#target-help').html('<div class="tooltip"><span class="tooltiptext">Tooltip bye</span></div>');
+		});
+	})
+</script>
+</body>
+</html>

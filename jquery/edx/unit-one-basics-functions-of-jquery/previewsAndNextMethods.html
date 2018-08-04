@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo one applying basic jquery attributes</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+  <style type="text/css">
+    body{
+      font-size: 32px;
+    }
+    div{
+      margin-top: .1em;
+    }
+  
+  </style>
+</head>
+<body>
+<div style="color: black" class="stop">First</div>
+<div style="color: black">Second</div>
+<div style="color: black">Third</div>
+<div style="color: black">Intruder</div>
+<div style="color: black">Lost</div>
+<div style="color: black" id="target">Fourth(Target)</div>
+<div style="color: black">Fifth</div>
+<div style="color: black">Sixth</div>
+<div style="color: black">Seventh</div>
+<div style="color: black">Intruder</div>
+<div style="color: black" class="end">Lost</div>
+<form>
+  <label for="provide-address">Provide address?</label>
+  <input type="checkbox" id="provide-address" />
+
+  <label for="street">Street:</label>
+  <input type="text" id="street" disabled="true" />
+
+  <label for="country">Country:</label>
+  <input type="text" id="country" disabled="true" />
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!--<script type="text/javascript" src="./scripts/script1.js"></script> -->
+	<script type="text/javascript">
+		$(function(){
+			//update previews element
+      //$('#target').prev().attr('style', 'color: red');
+
+      // update all previews elements at the same level
+      //$('#target').prevAll().attr('style', 'color: green');
+
+      // update all previews until (but not including) stop
+      $('#target').prevUntil('.stop').attr('style', 'color:blue');
+
+
+
+      // the same works going down the chaing by using next
+
+            //update next element
+      //$('#target').next().attr('style', 'color: red');
+
+      // update all next elements at the same level
+      //$('#target').nextAll().attr('style', 'color: green');
+
+      // update all next until (but not including) end
+      $('#target').nextUntil('.end').attr('style', 'color:blue');
+      $('#provide-address').nextAll('input').attr('disabled', 'true');
+
+
+
+		})
+	</script>
+</body>
+</html>

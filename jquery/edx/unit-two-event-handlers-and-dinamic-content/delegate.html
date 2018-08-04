@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>On event</title>
+	<style type="text/css">
+		.btn{
+			font-size: 1em;
+		}
+	</style>
+</head>
+<body>
+	<h3>Implementing the jquery function on</h3>
+	<form>
+		<div><button type="button" class="creator">Create new button</button></div>
+		<div><button type="button" class="upgrader">Existing button</button></div>
+		<div id="target"></div>
+	</form>
+	<div id="display"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// with the below code, it will execute once,
+	// however, html added later will not inherit the bahavior of parent
+	
+	$('.creator').click(function() {
+		$('#target').html('<button type="button" class="upgrader">Existing button</button>');
+	});
+	/*
+	$('button.upgrader').click(function() {
+		$('#display').text('Existing button was clicked!!!');
+	}); */
+
+	// In order to have dynamic html we will ad the handler to all future objects as well inside the form
+
+	/*$('form').delegate('button.upgrader', 'click', function() {
+		$('#display').text($(this).text() + ' was clicked!!!!');
+	});*/
+	// as delegate can be implemented with on after jquery 1.7
+	$('form').on('click','button.upgrader', function() {
+		$('#display').text($(this).text() + ' was clicked!!!!');
+	});
+
+	})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cloning with jquery</title>
+</head>
+<body>
+	<h1>Administrator page for the creation of email addresses and passwords to be submmied to the server</h1>
+
+	<button type="button" id="add-line">Add new line</button>
+	<div id="container">
+		<div class="user-entry">
+			<label>Email:</label>
+			<input type="email" />
+			<label>Password:</label>
+			<input type="password" />
+			<input type="submit" value="Submit">
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$userForm = $('.user-entry').clone();
+			$('#add-line').click(function() {
+				$('#container').append($userForm.clone());
+			});
+		})
+	</script>
+</body>
+</html>

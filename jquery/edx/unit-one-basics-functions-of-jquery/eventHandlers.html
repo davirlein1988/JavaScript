@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Modifying the text of an element</title>
+</head>
+<body>
+<div id="target">Will be replaced as soon as you clicked me 
+</div>
+<hr>
+<div id="display">...</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// $('#target').click(function(event) {
+		// 	// click even handler
+		// 	$('#display').text('Div above was clicked');
+		// });
+		$('div').click(function(event) {
+			//above is the DOM elelment
+			// Below, we convert it to jquery element
+			$(this).text('clicked!!!!');
+		});
+		$('div').hover(function() {
+			$(this).css({
+				border: '1px solid salmon',
+				color: 'grey'
+			});
+		
+		});
+	})
+</script>
+</body>
+</html>

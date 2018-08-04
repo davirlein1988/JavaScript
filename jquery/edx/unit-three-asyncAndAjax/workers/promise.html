@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IMplemeting a simple jquery promise </title>
+	<style type="text/css">
+		.box{
+			border: 1px solid grey;
+			background-color: black;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div id="output">Click on button to run script</div>
+	<div>
+		<button class="btn" id="executor">Run!!!</button>
+	</div>
+	<div class="box">Sample content
+		<H2>This content will be animated</H2>
+		<p>All this is content is mksdmfskdlm
+		dksdvklsvsalkfczlvks ldvk  djdhf</p>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#executor').click(function() {
+
+				$('.box').hide(3000).promise().done(function (){
+					$('#output').html('<strong>Box has been hidden</strong>');
+				} ).progress(function() {
+					$('#output').html('<h3>Loading three seconds!!1</h3>');
+				});
+				
+			});
+		})
+	</script>
+</body>
+</html>

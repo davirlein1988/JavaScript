@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Empty vs remove</title>
+	<style>
+        #target{
+            background-color: red;
+            color: yellow;
+        }
+        #delete{
+            background-color: blue;
+            color: white;
+        }
+        span{
+            display: block;
+            border: 2px solid blue;
+            font-weight: bold;
+            color: black;
+            background-color: salmon;
+        }
+	</style>
+</head>
+<body>
+<div id="target">
+    <h3>This content will be replaced by clicking below</h3>
+</div>
+<button type="button" id="btn-remove">Replace above!!!</button>
+<div id="target1">
+    <h3>This one never exists after the click</h3>
+    <p>This will disappeard for good</p>
+</div>
+<button type="button" id="btn-toggle">Replace elements too!!!</button>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+        $("#btn-remove").click(function() {
+            $('#target').replaceWith('<div><h2>This is new content that is being replaced</h2><p>And all os this is just plane text inside a paragraph<span>method used replaceWith()</span></p></div>');
+        });
+		$("#btn-toggle").click(function() {
+            $('<div><h2>This is new content that is being replaced</h2><p>And all os this is just plane text inside a paragraph<span>method used replaceAll()</span></p></div>').replaceAll('#target1')();
+        });
+	})
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>On event</title>
+	<style type="text/css">
+		.btn{
+			font-size: 1em;
+		}
+	</style>
+</head>
+<body>
+	<p>Implemeting click. trigger and triggerHandler events</p>
+<button type="button" id="first">First button</button>
+<button type="button" id="Second">Second button</button>
+<button type="button" id="trigger">trigger</button>
+<button type="button" id="trigger-handler">triggerHandler</button>
+<div id="target"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('button').click(function() {
+			//display the id of the button
+			alert(this.id);
+		});
+		$('#trigger').click(function() {
+			//will alert every buttons id
+			//including the last two
+			$('button').trigger('click');
+		});
+		 // Would alert "first"
+    	$('#trigger-handler').click(function() {
+        // Would alert "first"
+        	$('button').triggerHandler('click');
+    });
+	});
+</script>
+</body>
+</html>

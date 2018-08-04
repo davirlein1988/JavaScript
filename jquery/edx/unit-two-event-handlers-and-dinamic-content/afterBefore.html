@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<title>On event</title>
+	<style type="text/css">
+		.red{
+			color: red;
+		}
+		.green{
+			color: green;
+		}
+		#display {
+			border: 3px dotted brown;
+		}
+		.blue{
+			color: blue;
+		}
+		.yellow{
+			color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<p>Implemeting append and preppend with a click</p>
+<button type="button" id="target">Before!!!</button>
+<button type="button" id="target1">After!!!</button>
+<div id="display">
+	<p> <strong>The initial content before any script </strong> </p>
+
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		$('#target').click(function() {
+			//adding content before an element with the methos before
+			//let's display a title
+			$('#display').before('<div class="red"><h2>Title added With Before!!</h2></div>');
+			// same result as above, it only changes the order
+			$('<nav class="navbar navbar-expand-lg navbar-light bg-light"> <a class="navbar-brand" href="#">Navbar added with insertBefore</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav mr-auto"><li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a></li><li class="nav-item"><a class="nav-link" href="#">Link</a><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a><div class="dropdown-menu"aria-labelledby="navbarDropdown"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><div class="dropdown-divider"></div><a class="dropdown-item" href="#">Something else here</a></div></li><li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li></ul><form class="form-inline my-2 my-lg-0"><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button></form></div></nav>').insertBefore('#display');
+
+		});
+		$('.navbar-toggler').click(function() {
+			$('#navbarSupportedContent').toggle(1000);
+		});
+		$('#target1').click(function() {
+			//adding content after an element with the methods after
+			//let's display a title
+			$('#display').after('<div class="blue"><h2>Title added With After!!</h2></div>');
+			// same result as above, it only changes the order
+			$('<div><h2 class="yellow">Title added with insertAfter</h2></div>').insertAfter('#display');
+
+		});
+			
+	});
+</script>
+</body>
+</html>

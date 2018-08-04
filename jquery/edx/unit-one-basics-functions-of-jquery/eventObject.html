@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The event object</title>
+</head>
+<body>
+<div id="target">
+<button>I will change</button> 
+</div>
+<hr>
+<div id="display">...</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('button').click(function(event) {
+			$(this).text('Clicked');
+		});	
+		$('button').hover(function(e) {
+			$('#display').text(e.pageX + 'x' + e.pageY);	
+		});
+
+		$('button').dblclick(function() {
+			$('body').css({
+				'background-color': 'lightblue',
+				'color': 'yellow'
+			});
+			alert('ouchhhh!!!!');
+		});
+	})
+</script>
+</body>
+</html>

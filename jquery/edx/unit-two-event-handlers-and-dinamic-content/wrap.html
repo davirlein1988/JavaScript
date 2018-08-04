@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<title>Wrapp</title>
+
+</head>
+<body>
+	<h2>Jquery proviodes us three functions to wrap elements, wrap, wrapAll and wrapInner</h2>
+<div id="target">
+	<div class="demo">Item one</div>
+	<div class="demo">Item two</div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		// first example of function wrapp
+		/*
+		$('#target').wrap('<section></section>');
+		$('.demo').wrap('<article></article>');
+		*/
+		 // eaxmpple of wrapAll, one wrap for the whole target elements
+		 //$('.demo').wrapAll('<section></section>');
+		// finally we have wrapInner, one wrap for everything inside the target
+		$('#target').wrapInner('<section>Elements wrapped inside target</section>');
+
+
+	});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hide, show toggle</title>
+	<style>
+    	.hidden { display: none; }
+        #target{
+            background-color: lightblue;
+            color: black;
+            font: 20px bold;
+        }
+	</style>
+</head>
+<body>
+<div id="target">slide this when clicking
+<p>Slide in make an item appe</p>
+</div>
+<button type="button" id="btn-toggle">Animate!!</button>
+<form>
+    <div>
+        <label>Name:</label>
+        <input type="text" />
+    </div>
+    <button type="button" id="show-additional-information">
+        Show additional information
+    </button>
+    <div id="additional-information" class="hidden">
+        <label>Additional information:</label>
+        <input type="text" />
+    </div>
+</form>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#btn-toggle').click(function() {
+			$('#target').slideToggle(1000);
+		});
+		$('#show-additional-information').click(function() {
+        $('#additional-information').show(750);
+        // the above can be impplemented with toggle as well
+    	});
+	})
+</script>
+</html>
